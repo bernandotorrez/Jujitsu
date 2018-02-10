@@ -55,7 +55,7 @@
       $.ajax({
         
       type : 'POST',
-      url  : 'https://jujitsu-upn.online/reset/update_password',
+      url  : 'http://localhost/jujitsu/reset/update_password',
       data : data,
       beforeSend: function()
       { 

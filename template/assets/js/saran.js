@@ -53,7 +53,7 @@
       $.ajax({
         
       type : 'POST',
-      url  : 'https://jujitsu-upn.online/Home/kirim_saran',
+      url  : 'http://localhost/jujitsu/Home/kirim_saran',
       data : data,
       beforeSend: function()
       { 

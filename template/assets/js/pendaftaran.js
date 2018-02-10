@@ -130,7 +130,7 @@
       $.ajax({
         
       type : 'POST',
-      url  : 'https://jujitsu-upn.online/Home/pendaftaran_member',
+      url  : 'http://localhost/jujitsu/Home/pendaftaran_member',
       data : data,
       beforeSend: function()
       { 

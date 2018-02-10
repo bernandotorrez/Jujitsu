@@ -57,7 +57,7 @@
       $.ajax({
         
       type : 'POST',
-      url  : 'https://jujitsu-upn.online/reset/reset_member',
+      url  : 'http://localhost/jujitsu/reset/reset_member',
       data : data,
       beforeSend: function()
       { 

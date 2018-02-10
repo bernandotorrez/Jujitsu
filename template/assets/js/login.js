@@ -67,7 +67,7 @@
       $.ajax({
         
       type : 'POST',
-      url  : 'https://jujitsu-upn.online/login/login_member',
+      url  : 'http://localhost/jujitsu/login/login_member',
       data : data,
       beforeSend: function()
       { 
