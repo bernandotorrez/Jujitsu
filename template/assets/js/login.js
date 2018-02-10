@@ -72,7 +72,7 @@
       beforeSend: function()
       { 
         $("#error").fadeOut();
-        $("#btn-login").html('<img src="/template/assets/img/Bars.svg"/>').prop('disabled', true);
+        $("#btn-login").html('<img src="/jujitsu/template/assets/img/Bars.svg"/>').prop('disabled', true);
       },
       statusCode: {
     403: function() {

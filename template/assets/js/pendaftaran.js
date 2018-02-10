@@ -135,7 +135,7 @@
       beforeSend: function()
       { 
         $("#error1").fadeOut();
-        $("#btn-pendaftaran").html('<img src="/template/assets/img/Bars.svg"/>').prop('disabled', true);
+        $("#btn-pendaftaran").html('<img src="/jujitsu/template/assets/img/Bars.svg"/>').prop('disabled', true);
       },
       statusCode: {
     403: function() {
