@@ -25,7 +25,7 @@ $csrf_hash  = $this->security->get_csrf_hash();
                                
                             </div>
                             <div class="name">
-                                <h3 class="title"><? if($cek=='true'){ echo $data->nama_anggota; } else { echo $data->email;}?></h3>
+                                <h3 class="title"><?php if($cek=='true'){ echo $data->nama_anggota; } else { echo $data->email;}?></h3>
                                 <h6><?=$data->level;?>, <?=$response;?></h6>
                                 <?php if($cek=='true') { ?>
                                 <font class="text-success"><i class="fa fa-whatsapp fa-lg"></i> <?=$data->whatsapp;?></font>

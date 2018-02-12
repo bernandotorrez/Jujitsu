@@ -15,6 +15,14 @@ Class Template {
 
 		$this->_ci->load->view('template/template.php',$data);
 	}
+
+	function admin($template,$data=NULL){
+		$data['_menu'] = $this->_ci->load->view('template_admin/menu',$data, true);
+		$data['_content'] = $this->_ci->load->view($template,$data, true);
+		$data['_footer'] = $this->_ci->load->view('template_admin/footer',$data, true);
+
+		$this->_ci->load->view('template_admin/template.php',$data);
+	}
 }
 
 ?>
