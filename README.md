@@ -18,5 +18,5 @@ Software Development have 3 Stage :
 
 2. Development Stage : After localhost stage, you can put your source code from localhost stage to Development Stage (Your Web Application can be accessed to people who have to test your Application) // http://jujitsu-upn.online/dev
 
-3. Production Stage : After pass the Testing from Development Stage, your Web Application is ready to use in Public // http://jujitsu-upn.online/dev, // in this stage you can't direct edit any script or any data in Database!! 
+3. Production Stage : After pass the Test from Development Stage, your Web Application is ready to use in Public // http://jujitsu-upn.online/dev, // in this stage you can't direct edit any script or any data in Database!! 
 (You can edit in Development Stage -> Test -> after pass the test -> you can upload Script to Production Stage) 
