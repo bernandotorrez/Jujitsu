@@ -7,7 +7,7 @@ Class Check_login_admin {
 	function __construct(){
 		$CI =& get_instance();
 	if(empty($CI->session->userdata('login_admin') )){
-    redirect(base_url('login/admin'));
+    redirect(base_url('Home'));
 	}
 	}
 
