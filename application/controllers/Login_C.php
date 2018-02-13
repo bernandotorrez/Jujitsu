@@ -58,15 +58,26 @@ if ($row->count == 0)
         foreach($data as $row){
         $verifikasi = $row['verifikasi'];
         $status = $row['status'];
+        $level = $row['level'];
         }
         if($verifikasi=='None'){
           echo 'Verifikasi';            //cek verifikasi, apakah sudah di verifikasi atau belum
           } else if($status=='None'){
              echo 'Inactive';           //cek aktif, apakah login tersebut masih aktif atau tidak 
-          } else {
+          } elseif($level=='Anggota'){
             $data_session = array(
                 'email' => $email,
                 'login_member' => "true"
+                );
+ 
+            $this->session->set_userdata($data_session); //jika username dan password benar, status nya aktiv
+                                                         //maka pasang fungsi SESSION
+ 
+            echo 'ok';
+        } elseif($level=='Admin'){
+            $data_session = array(
+                'email' => $email,
+                'login_admin' => "true"
                 );
  
             $this->session->set_userdata($data_session); //jika username dan password benar, status nya aktiv
