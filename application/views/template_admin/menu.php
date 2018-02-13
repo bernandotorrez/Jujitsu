@@ -60,21 +60,21 @@
                     </li>
                     <li>
                         <a data-toggle="collapse" href="http://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html#pagesExamples">
-                            <i class="material-icons">image</i>
-                            <p> Pages
+                            <i class="material-icons">face</i>
+                            <p> Anggota
                                 <b class="caret"></b>
                             </p>
                         </a>
                         <div class="collapse" id="pagesExamples">
                             <ul class="nav">
                                 <li>
-                                    <a href="http://demos.creative-tim.com/material-dashboard-pro/examples/pages/pricing.html">
-                                        <span class="sidebar-mini"> P </span>
-                                        <span class="sidebar-normal"> Pricing </span>
+                                    <a href="<?=base_url('Admin/approval');?>">
+                                        <span class="sidebar-mini"> A </span>
+                                        <span class="sidebar-normal"> Approval </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://demos.creative-tim.com/material-dashboard-pro/examples/pages/rtl.html">
+                                    <a href="<?=base_url('Admin/approval');?>">
                                         <span class="sidebar-mini"> RS </span>
                                         <span class="sidebar-normal"> RTL Support </span>
                                     </a>
