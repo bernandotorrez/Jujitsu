@@ -111,6 +111,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             </ul>
           </li>
+          <?php } elseif($this->session->userdata('login_admin')){ ?>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="material-icons">settings</i> Admin
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu dropdown-with-icons">
+              
+              
+              <li>
+                <a href="<?=base_url('Admin');?>">
+                 <i class="material-icons">build</i> Panel Admin
+                </a>
+              </li>
+              <li>
+                <a href="<?=base_url('logout');?>">
+                  <i class="material-icons">power_settings_new</i> Logout
+                </a>
+              </li>
+
+            </ul>
+          </li>
           <?php } else { ?>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
