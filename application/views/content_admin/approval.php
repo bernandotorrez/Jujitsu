@@ -1,175 +1,424 @@
- <div class="content">
-                 
-                           <form role="form" id="pendaftaran-form" method="post">
-                <div class="row">
-                            <div class="col-md-3 col-md-offset-3">
-                                <div class="form-group">
-                                <label class="control-label">NIM</label>
-                                <input type="text" name="nim" class="form-control" id="nim" minlength="10" maxlength="10" />
-                                 <span class="help-block" id="error"></span>
-                            </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                <label class="control-label">Nama</label>
-                                <input type="text" name="nama" class="form-control" id="nama" minlength="5" maxlength="50"/>
-                                 <span class="help-block" id="error"></span>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 col-md-offset-3">
-                                <div class="form-group">
-                                <label class="control-label">Jenis Kelamin</label>
-                                <select class="form-control" data-style="select-with-transition"  title="Jenis Kelamin" data-size="10" id="jenis_kelamin" name="jenis_kelamin">
-                                        <option value=""> Jenis Kelamin</option>
-                                        <option value="L"> Laki - Laki</option>
-                                        <option value="P"> Perempuan</option>
-                                    </select>
-                                 <span class="help-block" id="error"></span>
-                            </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                <label class="control-label">Nomor Handphone</label>
-                                <input type="text" name="no_hp" class="form-control" id="no_hp" minlength="10" maxlength="12"/>
-                                 <span class="help-block" id="error"></span>
-                            </div>
-                            </div>
-                        </div>
+<?php
+$csrf_name  = $this->security->get_csrf_token_name();
+$csrf_hash  = $this->security->get_csrf_hash();
+?>
+<div class="main-content">
+                <div class="main-content-inner">
+                    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="ace-icon fa fa-home home-icon"></i>
+                                <a href="#">Home</a>
+                            </li>
 
-                        <div class="row">
-                            <div class="col-md-3 col-md-offset-3">
-                            <div class="form-group">
-                                <label class="control-label">Tempat Lahir</label>
-                                <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" minlength="3" maxlength="25"/>
-                                 <span class="help-block" id="error"></span>
-                            </div>
-                            </div>
-                            <div class="col-md-3">
-                                
-                            <div class="form-group">
-                                <label class="control-label">Tanggal Lahir</label>
-                                <input type="text" name="tanggal_lahir" class="form-control datepicker" id="tanggal_lahir" data-date-format='YYYY-MM-DD' />
-                                 <span class="help-block" id="error"></span>
-                            </div>
                         
-                            </div>
-                        </div>
+                            <li class="active">Anggota</li>
+                        </ul><!-- /.breadcrumb -->
 
-                        <div class="row">
-                            <div class="col-md-3 col-md-offset-3">
-                             <div class="form-group">
-                                <label class="control-label">Fakultas</label>
-                              <select class="form-control" data-style="select-with-transition"  title="Pilih Fakultas" data-size="10" id="fakultas" name="fakultas">
-                                        <option value=""> Pilih Fakultas</option>
-                                                                                <option value="1">Fakultas Ilmu Komputer </option>
-                                                                                <option value="2">Fakultas Kedokteran </option>
-                                                                                <option value="3">Fakultas Hukum </option>
-                                                                                <option value="4">Fakultas Ilmu Sosial dan Politik </option>
-                                                                                <option value="5">Fakultas Ilmu - Ilmu Kesehatan </option>
-                                                                                <option value="6">Fakultas Teknik </option>
-                                                                                <option value="7">Fakultas Ekonomi dan Bisnis </option>
-                                                                                
-                                    </select>
-                                    <span class="help-block" id="error"></span>
-                            </div>
-                            </div>
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <label class="control-label">Jurusan</label>
-                              <select class="form-control" data-style="select-with-transition"  title="Pilih Jurusan" data-size="10" id="jurusan" name="jurusan">
-                                        
-                                        
-                                                                                <option id="jurusan" class="1" value="1">S1 - Sistem Informasi </option>
-                                                                                <option id="jurusan" class="1" value="2">S1 - Teknik Informatika </option>
-                                                                                <option id="jurusan" class="1" value="3">D3 - Manajemen Informatika </option>
-                                                                                <option id="jurusan" class="2" value="11">S1  - Kedokteran </option>
-                                                                                <option id="jurusan" class="2" value="12">Profesi Dokter </option>
-                                                                                <option id="jurusan" class="3" value="19">S1 - Ilmu Hukum </option>
-                                                                                <option id="jurusan" class="3" value="20">S2 - Ilmu Hukum  </option>
-                                                                                <option id="jurusan" class="4" value="16">S1 - Ilmu Komunikasi </option>
-                                                                                <option id="jurusan" class="4" value="17">S1 - Hubungan Internasional </option>
-                                                                                <option id="jurusan" class="4" value="18">S1 - Ilmu Politik </option>
-                                                                                <option id="jurusan" class="5" value="21">D3 - Keperawatan </option>
-                                                                                <option id="jurusan" class="5" value="22">D3 - Fisioterapi </option>
-                                                                                <option id="jurusan" class="5" value="23">S1 - Keperawatan </option>
-                                                                                <option id="jurusan" class="5" value="24">S1 - Kesehatan Masyarakat </option>
-                                                                                <option id="jurusan" class="5" value="25">S1 - Ilmu Gizi </option>
-                                                                                <option id="jurusan" class="5" value="26">Profesi Ners </option>
-                                                                                <option id="jurusan" class="6" value="13">S1 - Teknik Mesin </option>
-                                                                                <option id="jurusan" class="6" value="14">S1 - Teknik Perkapalan </option>
-                                                                                <option id="jurusan" class="6" value="15">S1 - Teknik Industri </option>
-                                                                                <option id="jurusan" class="7" value="4">S2 - Magister Manajemen </option>
-                                                                                <option id="jurusan" class="7" value="5">S1 - Ekonomi Islam </option>
-                                                                                <option id="jurusan" class="7" value="6">S1 - Ilmu Ekonomi Pembangunan </option>
-                                                                                <option id="jurusan" class="7" value="7">S1 - Manajemen </option>
-                                                                                <option id="jurusan" class="7" value="8">S1 - Akutansi </option>
-                                                                                <option id="jurusan" class="7" value="9">D3 - Akuntansi </option>
-                                                                                <option id="jurusan" class="7" value="10">D3 - Keuangan Dan Perbankan </option>
-                                                                            </select>
-                                    <span class="help-block" id="error"></span>
-                            </div>
-                        
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3 col-md-offset-3">
-                             <div class="form-group">
-                                <label class="control-label">Angkatan Kuliah</label>
-                              <input type="text" name="angkatan_kuliah" class="form-control" id="angkatan_kuliah" minlength="4" maxlength="4"/>
-                              <span class="help-block" id="error"></span>
-                            </div>
-                            </div>
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <label class="control-label">Angkatan Jujitsu</label>
-                             <input type="text" name="angkatan_jujitsu" class="form-control" id="angkatan_jujitsu" minlength="4" maxlength="4"/>
-                             <span class="help-block" id="error"></span>
-                            </div>
-                        
-                            </div>
-                        </div>
-
-                         <div class="row">
-                            <div class="col-md-3 col-md-offset-3">
-                             <div class="form-group">
-                                <label class="control-label">LINE</label>
-                              <input type="text" name="line" class="form-control" id="line" minlength="3" maxlength="25"/>
-                              <span class="help-block" id="error"></span>
-                            </div>
-                            </div>
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <label class="control-label">WhatsApp</label>
-                             <input type="text" name="whatsapp" class="form-control" id="whatsapp" minlength="10" maxlength="12"/>
-                             <span class="help-block" id="error"></span>
-                            </div>
-                        
-                            </div>
-                        </div>
-
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                           
-                           
-                            
-                             <div class="form-group label-floating">
-                                <label class="control-label">Alamat</label>
-                                <textarea name="alamat" class="form-control" id="alamat" rows="4"></textarea>
-                                 <span class="help-block" id="error"></span>
-                            </div>
-                           <input type="hidden" name="csrf_protection" value="20f1b3a5976cb204415479060d1a3d23"/>
-                          
-                           
-                            <div class="submit text-center">
-                                <button type="submit" id="btn-pendaftaran" name="btn-pendaftaran" class="btn btn-success btn-raised btn-square btn-lg" value="Contact Us">Daftar</button>
-                            </div>
-                            </div>
-                        </div>
-                                                                          </form>
+                        <div class="nav-search" id="nav-search">
+                            <form class="form-search">
+                                <span class="input-icon">
                                     
-            
+                                </span>
+                            </form>
+                        </div><!-- /.nav-search -->
+                    </div>
+
+                    <div class="page-content">
+                        <div class="ace-settings-container" id="ace-settings-container">
+                            <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                                <i class="ace-icon fa fa-cog bigger-130"></i>
+                            </div>
+
+                            <div class="ace-settings-box clearfix" id="ace-settings-box">
+                                <div class="pull-left width-50">
+                                    <div class="ace-settings-item">
+                                        <div class="pull-left">
+                                            <select id="skin-colorpicker" class="hide">
+                                                <option data-skin="no-skin" value="#438EB9">#438EB9</option>
+                                                <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+                                                <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                                                <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                                            </select>
+                                        </div>
+                                        <span>&nbsp; Choose Skin</span>
+                                    </div>
+
+                                    <div class="ace-settings-item">
+                                        <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
+                                        <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+                                    </div>
+
+                                    <div class="ace-settings-item">
+                                        <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-sidebar" autocomplete="off" />
+                                        <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+                                    </div>
+
+                                    <div class="ace-settings-item">
+                                        <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
+                                        <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+                                    </div>
+
+                                    <div class="ace-settings-item">
+                                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
+                                        <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+                                    </div>
+
+                                    <div class="ace-settings-item">
+                                        <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
+                                        <label class="lbl" for="ace-settings-add-container">
+                                            Inside
+                                            <b>.container</b>
+                                        </label>
+                                    </div>
+                                </div><!-- /.pull-left -->
+
+                                <div class="pull-left width-50">
+                                    <div class="ace-settings-item">
+                                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" autocomplete="off" />
+                                        <label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+                                    </div>
+
+                                    <div class="ace-settings-item">
+                                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" autocomplete="off" />
+                                        <label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
+                                    </div>
+
+                                    <div class="ace-settings-item">
+                                        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" autocomplete="off" />
+                                        <label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
+                                    </div>
+                                </div><!-- /.pull-left -->
+                            </div><!-- /.ace-settings-box -->
+                        </div><!-- /.ace-settings-container -->
+
+                        <div class="page-header">
+                            <h1>
+                                Anggota
+                                <small>
+                                    <i class="ace-icon fa fa-angle-double-right"></i>
+                                    Approval
+                                </small>
+                            </h1>
+                        </div><!-- /.page-header -->
+                        <div class="space-24"></div>
+                        
+
+                        <!-- ============================== FORM ============== -->
+                          <form method="POST" id="dialog_edit_profile" name="dialog_edit_profile">
+                    <div class="col-xs-11">
+                        <div class="row">
+                                              <input type="hidden" name="txt_tipe" id="txt_tipe" class="form-control" style="width:220px;" value="<?=$this->session->userdata('info');?>" readonly>
+                                           <input type="hidden" name="txt_nameapp" id="txt_nameapp" value="<?=$this->session->userdata('info');?>">
+                                           <input type="hidden" name="htxt_nameapp" id="htxt_nameapp">
+    <!-- ============================== KIRI ============== -->
+            <div class="col-xs-6">
+
+                       
+                           
+                         <div class="row">
+                        <div class="form-group">
+                        <div class="col-xs-7">
+                             <label> Status :  </label>&nbsp;<label id="data" style="color:#4CAF50;"> </label><label id="nodata" style="color:#F44336;"> </label>
+                        </div>
+                       
+                       
+                        </div>
+                        </div>
+<div class="space-24"></div>
+                <div class="row">
+                    <div class="form-group">
+                    <div class="col-xs-5">
+                        <label>Referral Code : </label>
+                    </div>
+                    <div class="col-xs-4">
+                    
+                        <input type="text" name="ref_code" id="ref_code" class="form-control" autofocus onkeyup="CheckKey(event)" data-placement="bottom" data-original-title="Referral Code" data-rel="tooltip" title="Referral Code" minlength="5" maxlength="5">
+                       <input type="hidden" name="<?=$csrf_name;?>" id="<?=$csrf_name;?>" value="<?=$csrf_hash;?>"/>
+                    </div>
+                    <div class="col-xs-3">
+                    
+                        
+                        <button type="button" class="btn btn-primary btn-sm" id="btn-search">Search</button> 
                 
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <div class="space-12"></div>
+                <div class="row">
+                    <div class="form-group">
+                    <div class="col-xs-5">
+                        <label>NIM : </label>
+                    </div>
+                    <div class="col-xs-7">
+                    <input data-rel="tooltip" class="form-control" type="text" name="nim" id="nim" title="NIM" data-placement="bottom" data-original-title="NIM">
+                    </div>
+                    </div>
+                    </div>
+                    <div class="space-2"></div>
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Nama Jujitsan : </label>
+                    </div>
+                    <div class="col-xs-7">
+                    <input data-rel="tooltip" class="form-control" type="text" name="nama_jujitsan" id="nama_jujitsan" title="Nama Jujitsan" data-placement="bottom" data-original-title="Nama Jujitsan">
+                    </div>
+                
+                    </div>
+                    <div class="space-2"></div>
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>No HP : </label>
+                    </div>
+                    <div class="col-xs-7">
+                    <input data-rel="tooltip" class="form-control" type="text" name="no_hp" id="no_hp" title="Nomor Handphone" data-placement="bottom" data-original-title="Nomor Handphone">
+                    </div>
+                
+                    </div>
+                    <div class="space-2"></div>
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Line : </label>
+                    </div>
+                    <div class="col-xs-7">
+                     <input data-rel="tooltip" class="form-control" type="text" name="line" id="line" title="Line" data-placement="bottom" data-original-title="Line">
+                    </div>
+                
+                    </div>
+                    <div class="space-2"></div>
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Tempat Lahir : </label>
+                    </div>
+                    <div class="col-xs-7">
+                    <input data-rel="tooltip" class="form-control" type="text" name="tempat_lahir" id="tempat_lahir" title="Tempat Lahir" data-placement="bottom" data-original-title="Tempat Lahir">
+                    </div>
+                
+                    </div>
+                        
+                    <div class="space-2"></div>
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Fakultas : </label>
+                    </div>
+                    <div class="col-xs-7">
+                   
+
+   <input data-rel="tooltip" class="form-control" type="text" name="fakultas" id="fakultas" title="Fakultas" data-placement="bottom" data-original-title="Fakultas">
+
+                    </div>
+                
+                    </div>
+                    
+
+                    <div class="space-2"></div>
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Angkatan Kuliah : </label>
+                    </div>
+                    <div class="col-xs-7">
+                    <input data-rel="tooltip" class="form-control" type="text" name="angkatan_kuliah" id="angkatan_kuliah" title="Angkatan Kuliah" data-placement="bottom" data-original-title="Angkatan Kuliah">
+                    </div>
+                
+                    </div>
+
+                    <div class="space-2"></div>
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Alamat : </label>
+                    </div>
+                    <div class="col-xs-7">
+                    
+                    <textarea class="form-control" rows="4" id="alamat" name="alamat" title="Alamat" data-placement="bottom" data-original-title="Alamat"></textarea>
+                    </div>
+                
+                    </div>
+
+
+                    </div>
+                    <!-- ============================== KANAN ============== -->
+                  <div class="col-xs-6">
+                           <div class="row">
+                        <div class="form-group">
+                        <div class="col-xs-10">
+                            <label> Tips :  </label>&nbsp;<label id="tips1" style="color:#0069d9;"> Tekan "CTRL + Q" Untuk Mengosongkan Data</label></label>
+                        </div>
+                       
+                       
+                        </div>
+                        </div>
+                        <div class="space-24"></div>
+                         <div class="space-24"></div>
+                         <div class="space-24"></div>
+                         <div class="space-6"></div>
+                        <div class="row">
+                        <div class="form-group">
+                        <div class="col-xs-5">
+                              <label>Email : </label>
+                        </div>
+                        <div class="col-xs-7">
+                        
+                             <input data-rel="tooltip" class="form-control" type="text" name="email" id="email" title="Email" data-placement="bottom" data-original-title="Email">
+                              
+                        </div>
+                       
+                        </div>
+                        </div>
+                        <div class="space-2"></div>
+                <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Jenis Kelamin : </label>
+                    </div>
+                    <div class="col-xs-7">
+                      <input data-rel="tooltip" class="form-control" type="text" name="jenis_kelamin" id="jenis_kelamin" title="Jenis Kelamin" data-placement="bottom" data-original-title="Jenis Kelamin">
+                    </div>
+                    
+                    </div>
+                    <div class="space-2"></div>
+                    
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>WhatsApp : </label>
+                    </div>
+                    <div class="col-xs-7">
+                     <input data-rel="tooltip" class="form-control" type="text" name="whatsapp" id="whatsapp" title="WhatsApp" data-placement="bottom" data-original-title="WhatsApp">
+                    </div>
+                
+                    </div>
+
+                        <div class="space-2"></div>
+                    
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Refferal Code : </label>
+                    </div>
+                    <div class="col-xs-7">
+                      <input data-rel="tooltip" class="form-control" type="text" name="ref_code1" id="ref_code1" title="Refferal Code" data-placement="bottom" data-original-title="Refferal Code">
+                    </div>
+                
+                    </div>
+                    
+                        <div class="space-2"></div>
+                    
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Tanggal Lahir : </label>
+                    </div>
+                    <div class="col-xs-7">
+                     <input data-rel="tooltip" class="form-control" type="text" name="tanggal_lahir" id="tanggal_lahir" title="Tanggal Lahir" data-placement="bottom" data-original-title="Tanggal Lahir">
+                    </div>
+                
+                    </div>
+
+                    <div class="space-2"></div>
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Jurusan : </label>
+                    </div>
+                    <div class="col-xs-7">
+                     <input data-rel="tooltip" class="form-control" type="text" name="jurusan" id="jurusan" title="Jurusan" data-placement="bottom" data-original-title="Jurusan">
+                    </div>
+                
+                    </div>
+
+                    <div class="space-2"></div>
+                    <div class="row">
+                    
+                    <div class="col-xs-5">
+                        <label>Angkatan Jujitsu : </label>
+                    </div>
+                    <div class="col-xs-7">
+                    <input data-rel="tooltip" class="form-control" type="text" name="angkatan_jujitsu" id="angkatan_jujitsu" title="Angkatan Jujitsu" data-placement="bottom" data-original-title="Angkatan Jujitsu">
+                    </div>
+                
+                    </div>
+
+                     
+                        <div class="space-2"></div>
+                        <div class="row">
+                        
+                        <div class="col-xs-5">
+                              <label>Foto : </label>
+                        </div>
+                        <div class="col-xs-7">
+                        <div id="foto">
+                        </div>
+                        </div>
+                  
+                        </div>
+
+                
+
+                    </div>
+
             </div>
+            <div class="space-10"></div>
+            <div class="col-xs-12 text-center">
+              <input class="form-control btn btn-primary" type="button" name="btn_save" id="btn_save" value="Approve" style="width:200px;display:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               
+               <input class="form-control btn btn-danger" type=<?php echo ($this->session->userdata('cek') == 'Cabang'?'hidden':'button'); ?> name="btn_update" id="btn_update" value="UPDATE" style="width:200px;display:none;">
+
+            </div>
+            </div>
+
+                   <input type="hidden" name="txt_slapr" id="txt_slapr"/>
+<input type="hidden" name="txt_slapo" id="txt_slapo"/>
+<input type="hidden" name="txt_slaerdate" id="txt_slaerdate"/>
+<input type="hidden" name="txt_slakirim" id="txt_slakirim"/>
+<input type="hidden" name="txt_slacabang" id="txt_slacabang"/>
+<input type="hidden" name="txt_acct" id="txt_acct"/>
+<input type="hidden" name="txt_slafin" id="txt_slafin"/>
+<input type="hidden" name="txt_slahq" id="txt_slahq"/>
+        </form>
+            
+            <div class="col-md-11">
+                  <div class="space-24"></div><div class="space-24"></div>
+    <table cellspacing="1" cellpadding="1" class="table table-responsive text-center table-bordered1">
+  <tbody>
+  <thead>
+  <tr>
+  <td colspan="8">SLA (days)</td>
+  </tr>
+   <tr>
+      <td>SLA PR</td>
+      <td>SLA PO</td>
+      <td>SLA ER DATE</td>
+      <td>SLA KIRIM</td>
+      <td>SLA CABANG</td>
+      <td>ACCT</td>
+      <td>SLA FIN</td>
+      <td>SLA HQ</td>
+    </tr>
+     <tr>
+      <td id="slapr" class="text-bold">&nbsp;</td>
+      <td id="slapo" class="text-bold">&nbsp;</td>
+      <td id="slaerdate" class="text-bold">&nbsp;</td>
+      <td id="slakirim" class="text-bold">&nbsp;</td>
+      <td id="slacabang" class="text-bold">&nbsp;</td>
+      <td id="acct" class="text-bold">&nbsp;</td>
+      <td id="slafin" class="text-bold">&nbsp;</td>
+      <td id="slahq" class="text-bold">&nbsp;</td>
+    </tr>
+  </thead>
+   
+  </tbody>
+</table>
+</div>
+        
+           
+                    </div><!-- /.page-content -->
+                </div>
+            </div><!-- /.main-content -->

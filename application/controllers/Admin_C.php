@@ -39,9 +39,9 @@ class Admin_C extends CI_Controller {
   }
 
   public function cari_approval(){
-    $refcode = $this->input->post('refcode');
-
-    $cek = $this->Admin_M->getDataRefCode($refcode);
+    $refcode = strtoupper($this->input->post('ref_code'));
+    $where = array('a.referral_code' => $refcode);
+    $cek = $this->Admin_M->getDataRefCode($where);
   }
 
 }
