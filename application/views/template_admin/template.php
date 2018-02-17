@@ -152,99 +152,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     if($url =='Admin/approval' OR $url =='Admin/approval'){
       //include (APPPATH.'config/Searching_HQ.php');
     ?>
-<script type="text/javascript">
-    function Refresh() {
-         
-        document.location='page_ws_hq';
-
-      }
-
-    function enable_text(status){
-        status=!status;   
-
-      /*  document.dialog_edit_profile.txt_prdate.disabled = status;
-        document.dialog_edit_profile.txt_nopr.disabled = status;
-        document.dialog_edit_profile.txt_tipeer.disabled = status;
-        document.dialog_edit_profile.txt_podate.disabled = status;
-        document.dialog_edit_profile.txt_noer.disabled = status;
-        document.dialog_edit_profile.txt_podate.readonly = status;
-        document.dialog_edit_profile.txt_erdate.disabled = status;
-        document.dialog_edit_profile.txt_accdate.disabled = status;
-        document.dialog_edit_profile.txt_appdate.disabled = status;
-        document.dialog_edit_profile.txt_tglcair.disabled = status;
-        document.dialog_edit_profile.txt_paygroup.disabled = status;
-        document.dialog_edit_profile.txt_branchid.disabled = status;
-        document.dialog_edit_profile.txt_amount.disabled = status;
-        document.dialog_edit_profile.txt_beneficiary.disabled = status;
-        document.dialog_edit_profile.txt_barang.disabled = status;
-        document.dialog_edit_profile.txt_accnumber.disabled = status; 
-    */
 
 
-
-        document.dialog_edit_profile.txt_dep.disabled = status;
-        document.dialog_edit_profile.txt_validator1.disabled = status;
-        document.dialog_edit_profile.txt_validator2.disabled = status;
-        document.dialog_edit_profile.txt_checker.disabled = status;
-        document.dialog_edit_profile.txt_periode.disabled = status;
-        document.dialog_edit_profile.txt_ti.disabled = status;
-        document.dialog_edit_profile.txt_tpc.disabled = status;
-        document.dialog_edit_profile.txt_status.disabled = status;
-        document.dialog_edit_profile.txt_remarks.disabled = status;
-        document.dialog_edit_profile.txt_tif.disabled = status;
-        //document.dialog_edit_profile.txt_appdate.disabled = status; 
-        document.dialog_edit_profile.txt_tipeerpr.disabled = status;
-}
-     
-    
-</script>
-<script type="text/javascript">
-  
-$('#aktif').change(function() {
-    if($('#aktif option:selected').val() == 'aktifkan') {
-     document.getElementById("txt_checker").disabled = false;
- document.getElementById("txt_tipeer").disabled = false;
- document.getElementById("txt_validator1").disabled = false;
- document.getElementById("txt_validator2").disabled = false;
- document.getElementById("txt_periode").disabled = false;
- document.getElementById("txt_ti").disabled = false;
- document.getElementById("txt_tpc").disabled = false;
- document.getElementById("txt_tif").disabled = false;
- document.getElementById("txt_status").disabled = false;
- document.getElementById("txt_remarks").disabled = false;
-
- document.getElementById("txt_tipeerpr").disabled = false;
- document.getElementById("txt_dep").disabled = false;
-  $('<input>').attr({
-    type: 'hidden',
-    id: 'type',
-    name: 'type',
-    value: 'aktif'
-}).appendTo('form')
-    }
-    else {
-   document.getElementById("txt_checker").disabled = true;
- document.getElementById("txt_tipeer").disabled = true;
- document.getElementById("txt_validator1").disabled = true;
- document.getElementById("txt_validator2").disabled = true;
- document.getElementById("txt_periode").disabled = true;
- document.getElementById("txt_ti").disabled = true;
- document.getElementById("txt_tpc").disabled = true;
- document.getElementById("txt_tif").disabled = true;
- document.getElementById("txt_status").disabled = true;
- document.getElementById("txt_remarks").disabled = true;
-
- document.getElementById("txt_tipeerpr").disabled = true;
- document.getElementById("txt_dep").disabled = true;
- $('<input>').attr({
-    type: 'hidden',
-    id: 'type',
-    name: 'type',
-    value: 'nonaktif'
-}).appendTo('form')
-    }
-});
-</script>
 <script>
   
 
@@ -252,73 +161,8 @@ $('#aktif').change(function() {
     // alert("test");
       $('#btn_save').click(function(){
 
-        var formData = $('#dialog_edit_profile').serialize();
-        // console.log(formData);
-        // alert(formData);
-
-        swal({
-            title: 'Are you sure?',
-            text: 'Are you sure want to save this data?',
-            type: 'info',
-            showCancelButton: true,
-            closeOnConfirm: false,
-            showLoaderOnConfirm: true,
-            }, function(){
-                      $.ajax({
-                        url: 'http://localhost:8080/ci-tracking/WebService/saveSharePointHQ',
-                        type: 'POST',
-                        data: formData,
-                        success: function(data) {
-                          if(data=="OK")
-                          {
-                            swal({
-                              title: 'Success',
-                              text: '',
-                              type: 'success',
-                              showCancelButton: false,
-                              closeOnConfirm: true,
-                              showLoaderOnConfirm: false,
-                              },function(){
-                                document.getElementById("nodata").innerHTML = "";
-          document.getElementById("data").innerHTML = "Input Data Berhasil";
-           document.getElementById('txt_noerpr').focus();
-                            $('html, body').animate({ scrollTop: 0 }, 'fast');
-                              });
-                            
-                          }
-                          else
-                          {
-                            swal({
-                              title: 'Error',
-                              text: data,
-                              type: 'error',
-                              showCancelButton: false,
-                              closeOnConfirm: false,
-                              showLoaderOnConfirm: false,
-                              });
-                              document.getElementById("data").innerHTML = "";
-                            document.getElementById("nodata").innerHTML = "Input Data Gagal"; 
-                            // document.getElementById("tips").innerHTML = "Pastikan Semua Form Terisi"; 
-                            document.getElementById('txt_noerpr').focus();
-                            $('html, body').animate({ scrollTop: 0 }, 'fast');
-
-                          }
-                        }
-                      });
-        setTimeout(function() {
-          //swal('Data saved');
-        }, 2000);
-      });
-    });
-  });
-
-  $(function(){
-    
-      $('#btn_update').click(function(){
-
-        var formData = $('#dialog_edit_profile').serialize();
-        // console.log(formData);
-        // alert(formData);
+         var data_email = $("#email").val();
+        var data_csrf_protection = $("#csrf_protection").val();
 
         swal({
             title: 'Are you sure?',
@@ -329,9 +173,9 @@ $('#aktif').change(function() {
             showLoaderOnConfirm: true,
             }, function(){
                       $.ajax({
-                        url: 'http://localhost:8080/ci-tracking/WebService/updateSharePointHQ',
+                        url: 'http://localhost/jujitsu/Admin/change_approval',
                         type: 'POST',
-                        data: formData,
+                        data: { email: data_email, csrf_protection: data_csrf_protection },
                         success: function(data) {
                           if(data=="OK")
                           {
@@ -345,9 +189,12 @@ $('#aktif').change(function() {
                               },function(){
                                  
          
-                              document.getElementById("nodata").innerHTML = "";
-                              document.getElementById("data").innerHTML = "Update Data Berhasil";
-                              document.getElementById('txt_noerpr').focus();
+                             
+                               $("#data").html('Approval Berhasil!');
+                                 $("#nodata").html('');
+                                 $("#ref_code").html('');
+                                 $("#sudah_approve").html('');
+                                $("#belum_approve").html('');
                               $('html, body').animate({ scrollTop: 0 }, 'fast');
                               });
                           }
@@ -361,11 +208,86 @@ $('#aktif').change(function() {
                               closeOnConfirm: false,
                               showLoaderOnConfirm: false,
                               });
-                            document.getElementById("data").innerHTML = "";
-                            document.getElementById("nodata").innerHTML = "Update Data Gagal"; 
-                            document.getElementById('txt_noerpr').focus();
-                            document.getElementById("aktif").checked = true;
-                            enable_text();
+                            
+                             $("#data").html('');
+                                 $("#nodata").html('Approval Gagal!');
+                                 $("#ref_code").html('');
+                            $("#sudah_approve").html('');
+                                $("#belum_approve").html('');
+                            $('html, body').animate({ scrollTop: 0 }, 'fast');
+
+                          }
+                        }
+                      
+                    });
+        setTimeout(function() {
+          //swal('Data saved');
+        }, 2000);
+      });
+    });
+  });
+
+  $(function(){
+    
+      $('#btn_update').click(function(){
+
+        //var formData = $('#dialog_edit_profile').serialize();
+        // console.log(formData);
+        // alert(formData);
+
+        var data_email = $("#email").val();
+        var data_csrf_protection = $("#csrf_protection").val();
+
+        swal({
+            title: 'Are you sure?',
+            text: 'Are you sure want to update this data?',
+            type: 'info',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+            }, function(){
+                      $.ajax({
+                        url: 'http://localhost/jujitsu/Admin/change_approval',
+                        type: 'POST',
+                        data: { email: data_email, csrf_protection: data_csrf_protection },
+                        success: function(data) {
+                          if(data=="OK")
+                          {
+                            swal({
+                              title: 'Success',
+                              text: '',
+                              type: 'success',
+                              showCancelButton: false,
+                              closeOnConfirm: true,
+                              showLoaderOnConfirm: false,
+                              },function(){
+                                 
+         
+                             
+                               $("#data").html('Approval Berhasil!');
+                                 $("#nodata").html('');
+                                 $("#sudah_approve").html('');
+                                 $("#belum_approve").html('');
+                                 $("#ref_code").html('');
+                              $('html, body').animate({ scrollTop: 0 }, 'fast');
+                              });
+                          }
+                          else
+                          {
+                            swal({
+                              title: 'Error',
+                              text: data,
+                              type: 'error',
+                              showCancelButton: false,
+                              closeOnConfirm: false,
+                              showLoaderOnConfirm: false,
+                              });
+                            
+                             $("#data").html('');
+                                 $("#nodata").html('Approval Gagal!');
+                                 $("#ref_code").html('');
+                            $("#sudah_approve").html('');
+                                 $("#belum_approve").html('');
                             $('html, body').animate({ scrollTop: 0 }, 'fast');
 
                           }

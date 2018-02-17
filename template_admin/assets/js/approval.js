@@ -62,33 +62,22 @@ function enableText() {
 }
 
 function eraseText1() {
- document.getElementById("htxt_nopr").value = "";
- document.getElementById("txt_prdate").value = "";
- document.getElementById("htxt_noer").value = "";
- document.getElementById("txt_podate").value = "";
- document.getElementById("txt_erdate").value = "";
- document.getElementById("txt_accdate").value = "";
- document.getElementById("txt_appdate").value = "";
- document.getElementById("txt_tglcair").value = "";
- document.getElementById("txt_paygroup").value = "";
- document.getElementById("txt_branchid").value = "";
- document.getElementById("txt_amount").value = "";
- document.getElementById("txt_beneficiary").value = "";
- document.getElementById("txt_kegiatan").value = "";
- document.getElementById("txt_accnumber").value = "";
- document.getElementById("txt_checker").value = "";
- document.getElementById("txt_tipeer").value = "";
- document.getElementById("txt_validator1").value = "";
- document.getElementById("txt_validator2").value = "";
- document.getElementById("txt_periode").value = "";
- document.getElementById("txt_ti").value = "";
- document.getElementById("txt_tpc").value = "";
- document.getElementById("txt_tif").value = "";
- document.getElementById("txt_status").value = "";
- document.getElementById("txt_remarks").value = "";
-
- document.getElementById("txt_tipeerpr").value = "";
- document.getElementById("txt_dep").value = "";
+ $("#nim").val('').prop('disabled', false);          
+    $("#email").val('').prop('disabled', false);
+    $("#nama_jujitsan").val('').prop('disabled', false);
+    $("#jenis_kelamin").val('').prop('disabled', false);
+    $("#no_hp").val('').prop('disabled', false);
+    $("#whatsapp").val('').prop('disabled', false);
+    $("#line").val('').prop('disabled', false);
+    $("#ref_code1").val('').prop('disabled', false)
+    $("#tempat_lahir").val('').prop('disabled', false);
+    $("#tanggal_lahir").val('').prop('disabled', false);
+    $("#fakultas").val('').prop('disabled', false);
+    $("#jurusan").val('').prop('disabled', false);
+     $("#alamat").val('').prop('disabled', false);
+      $("#angkatan_kuliah").val('').prop('disabled', false);
+    $("#angkatan_jujitsu").val('').prop('disabled', false);
+     $("#foto").html('');
 
 }
 
@@ -228,13 +217,16 @@ function search() {
     }*/
 
     //button save or update
-    if (response.button == 'save') {
+    if (response.button == 'save' && response.status_pendaftaran=='0') {
     	//document.getElementById("btn_save").style.display = "inline";
          
      //document.getElementById("btn_update").style.display = "none"; 
      $("#btn_save").show();    
      $("#btn_update").hide();  
- } else if (response.button == 'update') {
+ } else  if (response.button == 'save' && response.status_pendaftaran=='1') {
+$("#btn_save").hide();    
+     $("#btn_update").hide();
+ }  else if (response.button == 'update') {
     //document.getElementById("btn_save").style.display = "none";
      //document.getElementById("btn_update").style.display = "inline";   
       $("#btn_save").hide();    
@@ -271,7 +263,7 @@ function search() {
     $("#angkatan_jujitsu").val(response.angkatan_jujitsu).prop('disabled', true);
     $("#alamat").val(response.alamat).prop('disabled', true);
     var foto = response.foto;
-    $("#foto").html('<img src="http://localhost/jujitsu/uploads/'+foto+'" style="height: 60px; width: 150px;">');
+    $("#foto").html('<img src="http://localhost/jujitsu/uploads/'+foto+'" style="height: 150px; width: 150px;">');
     console.log(response);
 
     /*$("#htxt_nopr").val(response.txt_nopr);
@@ -416,6 +408,20 @@ function search() {
     document.getElementById("data").innerHTML = "Data Ditemukan";*/
     $("#data").html('Data Ditemukan');
     $("#nodata").html('');
+
+    var status_pendaftaran = response.status_pendaftaran;
+    if(status_pendaftaran=='0'){
+      $("#sudah_approve").html('');
+      $("#belum_approve").html('Belum Di Approve');
+
+      
+    } else {
+      $("#belum_approve").html('');
+      $("#sudah_approve").html('Sudah Di Approve');
+      
+    }
+    
+    
     //document.getElementById("nodata").innerHTML = "";
     //document.getElementById("aktif").checked = false;
 $("#btn-search").html('Search').prop('disabled', false);
@@ -429,14 +435,16 @@ $("#btn-search").html('Search').prop('disabled', false);
     $("#jenis_kelamin").val('').prop('disabled', false);
     $("#no_hp").val('').prop('disabled', false);
     $("#whatsapp").val('').prop('disabled', false);
-    $("#line").val(response.line).prop('disabled', false);
-    $("#ref_code1").val(response.ref_code).prop('disabled', false)
-    $("#tempat_lahir").val(response.tempat_lahir).prop('disabled', false);
-    $("#tanggal_lahir").val(response.tanggal_lahir).prop('disabled', false);
-    $("#fakultas").val(response.fakultas).prop('disabled', false);
-    $("#jurusan").val(response.jurusan).prop('disabled', false);
-     $("#alamat").val(response.alamat).prop('disabled', false);
-     $("#foto").val('');
+    $("#line").val('').prop('disabled', false);
+    $("#ref_code1").val('').prop('disabled', false)
+    $("#tempat_lahir").val('').prop('disabled', false);
+    $("#tanggal_lahir").val('').prop('disabled', false);
+    $("#fakultas").val('').prop('disabled', false);
+    $("#jurusan").val('').prop('disabled', false);
+     $("#alamat").val('').prop('disabled', false);
+      $("#angkatan_kuliah").val('').prop('disabled', false);
+    $("#angkatan_jujitsu").val('').prop('disabled', false);
+     $("#foto").html('');
     console.log(response);
     $("#btn_save").hide();    
     $("#btn_update").hide();  
@@ -506,6 +514,8 @@ $("#btn-search").html('Search').prop('disabled', false);
     //document.getElementById("data").innerHTML = "";
     $("#data").html('');
     $("#nodata").html('Data Tidak Ditemukan');
+    $("#sudah_approve").html('');
+$("#belum_approve").html('');
     //document.getElementById("aktif").checked = false;
     $("#btn-search").html('Search').prop('disabled', false);
    }

@@ -125,6 +125,16 @@ $csrf_hash  = $this->security->get_csrf_hash();
                        
                         </div>
                         </div>
+                        <div class="space-6"></div>
+                        <div class="row">
+                        <div class="form-group">
+                        <div class="col-xs-7">
+                             <label> Approve :  </label>&nbsp;<label id="sudah_approve" style="color:#4CAF50;"> </label><label id="belum_approve" style="color:#F44336;"> </label>
+                        </div>
+                       
+                       
+                        </div>
+                        </div>
 <div class="space-24"></div>
                 <div class="row">
                     <div class="form-group">
@@ -258,7 +268,8 @@ $csrf_hash  = $this->security->get_csrf_hash();
                         <div class="space-24"></div>
                          <div class="space-24"></div>
                          <div class="space-24"></div>
-                         <div class="space-6"></div>
+                         <div class="space-24"></div>
+                         <div class="space-20"></div>
                         <div class="row">
                         <div class="form-group">
                         <div class="col-xs-5">
@@ -374,49 +385,9 @@ $csrf_hash  = $this->security->get_csrf_hash();
             </div>
             </div>
 
-                   <input type="hidden" name="txt_slapr" id="txt_slapr"/>
-<input type="hidden" name="txt_slapo" id="txt_slapo"/>
-<input type="hidden" name="txt_slaerdate" id="txt_slaerdate"/>
-<input type="hidden" name="txt_slakirim" id="txt_slakirim"/>
-<input type="hidden" name="txt_slacabang" id="txt_slacabang"/>
-<input type="hidden" name="txt_acct" id="txt_acct"/>
-<input type="hidden" name="txt_slafin" id="txt_slafin"/>
-<input type="hidden" name="txt_slahq" id="txt_slahq"/>
         </form>
             
-            <div class="col-md-11">
-                  <div class="space-24"></div><div class="space-24"></div>
-    <table cellspacing="1" cellpadding="1" class="table table-responsive text-center table-bordered1">
-  <tbody>
-  <thead>
-  <tr>
-  <td colspan="8">SLA (days)</td>
-  </tr>
-   <tr>
-      <td>SLA PR</td>
-      <td>SLA PO</td>
-      <td>SLA ER DATE</td>
-      <td>SLA KIRIM</td>
-      <td>SLA CABANG</td>
-      <td>ACCT</td>
-      <td>SLA FIN</td>
-      <td>SLA HQ</td>
-    </tr>
-     <tr>
-      <td id="slapr" class="text-bold">&nbsp;</td>
-      <td id="slapo" class="text-bold">&nbsp;</td>
-      <td id="slaerdate" class="text-bold">&nbsp;</td>
-      <td id="slakirim" class="text-bold">&nbsp;</td>
-      <td id="slacabang" class="text-bold">&nbsp;</td>
-      <td id="acct" class="text-bold">&nbsp;</td>
-      <td id="slafin" class="text-bold">&nbsp;</td>
-      <td id="slahq" class="text-bold">&nbsp;</td>
-    </tr>
-  </thead>
-   
-  </tbody>
-</table>
-</div>
+            
         
            
                     </div><!-- /.page-content -->

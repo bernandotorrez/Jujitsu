@@ -44,4 +44,10 @@ class Admin_C extends CI_Controller {
     $cek = $this->Admin_M->getDataRefCode($where);
   }
 
+  public function change_approval(){
+    $email = strtoupper($this->input->post('email'));
+    //$where = array('a.referral_code' => $refcode);
+    $update = $this->Admin_M->change_approval($email);
+  }
+
 }
