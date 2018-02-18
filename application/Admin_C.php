@@ -38,20 +38,6 @@ class Admin_C extends CI_Controller {
     /*============= END Fungsi untuk memanggil halaman Approval =============*/
   }
 
-  public function data_anggota(){
-    /*============= START Fungsi untuk memanggil halaman Approval =============*/
-
-    $data['title'] = 'Halaman Admin Approval - Jujitsu UPN Veteran Jakarta';
-    //$data['class'] = 'section-white';
-    $data['url'] = $this->uri->uri_string();
-    $data['data_anggota'] = $this->getAllDataAnggota();
-    //$data['total'] = $this->Home_M->jumlah_anggota();
-    $this->template->admin('content_admin/data_anggota',$data);
-    //$this->load->view('content_admin/data_anggota',$data);
-
-    /*============= END Fungsi untuk memanggil halaman Approval =============*/
-  }
-
   public function cari_approval(){
     $refcode = strtoupper($this->input->post('ref_code'));
     $where = array('a.referral_code' => $refcode);
@@ -62,12 +48,6 @@ class Admin_C extends CI_Controller {
     $email = strtoupper($this->input->post('email'));
     //$where = array('a.referral_code' => $refcode);
     $update = $this->Admin_M->change_approval($email);
-  }
-
-  public function getAllDataAnggota(){
-    $data = $this->Admin_M->getAllDataAnggota();
-
-    return $data;
   }
 
 }

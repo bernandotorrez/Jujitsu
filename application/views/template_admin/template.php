@@ -959,107 +959,8 @@ $('#aktif').change(function() {
 		</script>
    
 
-    <?php if($url=='Home/report' OR $url=='home/report'){ ?>
-     <script type="text/javascript">
-     $( document ).ready(function() {
-    report();
-});
-//=========================================================//
-
-function report() {
-
- $.ajax({
-  type: "POST", // Method pengiriman data bisa dengan GET atau POST
-  url: "http://localhost:8080/ci-tracking/WebService/getWSREPORT", // Isi dengan url/path file php yang dituju
-  data: {
-  
-  }, // data yang akan dikirim ke file proses
-  dataType: "json",
-  beforeSend: function(e) {
-   if (e && e.overrideMimeType) {
-    e.overrideMimeType("application/json;charset=UTF-8");
-   }
-   
-  },
-  success: function(response) { // Ketika proses pengiriman berhasil
-
-
-   if (response.status == "success") { // Jika isi dari array status adalah success
-    //fungsi javascript bilangan dalam rupiah
-
-
-    
-
-    // varibel miliday sebagai pembagi untuk menghasilkan hari
-    
-    // varibel miliday sebagai pembagi untuk menghasilkan hari
-    function convertdate(date1, date2){
-      var selisih;
-      if(!date1 || !date2){
-        selisih = '-';
-        return selisih;
-      }
-    var date1 = new Date(date1);
-    var date2 = new Date(date2);
-
-    var timeDiff = Math.abs(date1.getTime() - date2.getTime());
-   selisih = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-
-    return selisih+" Hari";
-
-    }
-
-    function convertdatetampil(date1, date2){
-      var selisih;
-      if(!date1 || !date2){
-        selisih = '-';
-        return selisih;
-      }
-    var date1 = new Date(date1);
-    var date2 = new Date(date2);
-
-    var timeDiff = Math.abs(date1.getTime() - date2.getTime());
-   selisih = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-
-    return selisih;
-
-    }
-
-    var prnumber = response.txt_prnumber;
-   
-      // $('#prnumber').text(response.txt_prnumber);
-    //   document.getElementById("prnumber").innerHTML = '' + prnumber + '';
-          
-    //     document.getElementById("ernumber").innerHTML = response.txt_ernumber;
-    // document.getElementById("validator1").innerHTML = response.txt_validator1;
-    //  document.getElementById("validator2").innerHTML = response.txt_validator2;
-    //  document.getElementById("checker").innerHTML = response.txt_checker;
-    //  document.getElementById("kode_cabang").innerHTML = response.txt_kodecabang;
-
-    //  document.getElementById("cabang").innerHTML = response.txt_cabang;
-    //     document.getElementById("tipe_er").innerHTML = response.txt_tipeer;
-    // document.getElementById("tgl_incom").innerHTML = response.txt_ti;
-    //  document.getElementById("tgl_pros_check").innerHTML = response.txt_tps;
-    //  document.getElementById("periode").innerHTML = response.txt_periode;
-    //  document.getElementById("status").innerHTML = response.txt_status;
-
-
-    
-
-   } else { // Jika isi dari array status adalah failed
-    // alert("Data Tidak Ditemukan");
-    //swal("Tidak Di Temukan/isi No PR!", "Silahkan Cari Berdasarkan No PR", "error");
-    // document.location='Page_Input';
-    
-   
-   }
-  },
-  error: function(xhr, ajaxOptions, thrownError) { // Ketika ada error
-   alert(xhr.responseText);
-  }
- });
-}
-    </script>
+    <?php if($url=='Admin/report' OR $url=='admin/report' OR $url=='Admin/data_anggota' OR $url=='admin/data_anggota'){ ?>
+     
     <script src="<?=base_url('template_admin/assets/js/jquery.dataTables.min.js');?>"></script>
     <script src="<?=base_url('template_admin/assets/js/jquery.dataTables.bootstrap.min.js');?>"></script>
    <script src="<?=base_url('template_admin/assets/js/dataTables.buttons.min.js');?>"></script>
@@ -1076,12 +977,12 @@ function report() {
         $('#dynamic-table')
         //.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
         .DataTable( {
-          bserverSide: true,
+          //bserverSide: false,
 
           bAutoWidth: false,
           "aoColumns": [
             { "bSortable": null },
-            null, null,null, null, null, null, null,null, null, null, null,null, null,null, null, null, null, null,null, null, null, null,null,null,null,null,
+            null, null,null, null, null, null, null,null, null, null, null,null, null,null,
             { "bSortable": false }
           ],
           "aaSorting": [],
@@ -1092,11 +993,11 @@ function report() {
               //"sAjaxSource": "http://127.0.0.1/table.php" ,
       
           //,
-          //"sScrollY": "200px",
+          "sScrollY": "500px",
           //"bPaginate": false,
       
-          //"sScrollX": "100%",
-          //"sScrollXInner": "120%",
+          "sScrollX": "100%",
+          "sScrollXInner": "100%",
           //"bScrollCollapse": true,
           //Note: if you are applying horizontal scrolling (sScrollX) on a ".table-bordered"
           //you may want to wrap the table inside a "div.dataTables_borderWrap" element
@@ -1104,9 +1005,9 @@ function report() {
           //"iDisplayLength": 50
       
       
-          select: {
+         /* select: {
             style: 'multi'
-          }
+          }*/
           } );
       
         

@@ -71,4 +71,20 @@ Class Admin_M extends CI_Model{
             echo "NO";
         }
   }
+
+  public function getAllDataAnggota(){
+       $this->db->select('l.email,l.level,l.login_time,l.logout_time,a.nim,a.nama_anggota,a.jenis_kelamin,a.tempat_lahir,a.tanggal_lahir,a.no_hp,a.angkatan_kuliah,a.angkatan_jujitsu,a.foto,a.line,a.whatsapp,a.alamat,a.referral_code,j.nama_jurusan,f.nama_fakultas,a.status_pendaftaran');
+        $this->db->from('login l');
+        $this->db->join('anggota a', 'a.email=l.email', 'inner');
+        $this->db->join('jurusan j', 'a.id_jurusan=j.id_jurusan', 'inner');
+        $this->db->join('fakultas f', 'f.id_fakultas=j.id_fakultas', 'inner');
+        //$this->db->where($where);
+        //$this->db->limit(1);
+        $query = $this->db->get();
+
+    
+        
+        return json_encode($query->result());
+  }
+
 }

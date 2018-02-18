@@ -2,7 +2,7 @@
 error_reporting(0);
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div id="navbar" class="navbar navbar-default          ace-save-state">
+<div id="navbar" class="navbar navbar-default          ace-save-state navbar-fixed-top">
 			<div class="navbar-container ace-save-state" id="navbar-container">
 				<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
 					<span class="sr-only">Toggle sidebar</span>
@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				try{ace.settings.loadState('main-container')}catch(e){}
 			</script>
 
-			<div id="sidebar" class="sidebar                  responsive                    ace-save-state">
+			<div id="sidebar" class="sidebar                  responsive                    ace-save-state sidebar-fixed">
 				<script type="text/javascript">
 					try{ace.settings.loadState('sidebar')}catch(e){}
 				</script>
@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div><!-- /.sidebar-shortcuts -->
 				<ul class="nav nav-list">
-				<?php if($url=='Admin/index' OR $url=='Home'){
+				<?php if($url=='Admin/index' OR $url=='Admin'){
 					echo '<li class="active">';
 					 } else { 
 					echo '<li class="">';
@@ -120,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					
 					
-					<?php if($url=='Admin/approval' OR $url=='Admin/approval' OR $url=='Admin/data_anggota' OR $url=='Admin/data_anggota'){
+					<?php if($url=='Admin/approval' OR $url=='Admin/approval' OR $url=='Admin/data_anggota' OR $url=='admin/data_anggota'){
 					echo '<li class="active open">';
 					 } else { 
 					echo '<li class="">';
@@ -137,7 +137,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 						<ul class="submenu">
 							
-					<?php if($url=='Admin/approval' OR $url=='Admin/approval'){
+					<?php if($url=='Admin/approval' OR $url=='admin/approval'){
 					echo '<li class="active">';
 					 } else { 
 					echo '<li class="">';
@@ -151,7 +151,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<b class="arrow"></b>
 							</li>
 
-							<?php if($url=='Admin/data_anggota' OR $url=='Admin/data_anggota'){
+							<?php if($url=='Admin/data_anggota' OR $url=='admin/data_anggota'){
 					echo '<li class="active">';
 					 } else { 
 					echo '<li class="">';
@@ -170,7 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-					<?php if($url=='Admin/report' OR $url=='Admin/report'){
+					<?php if($url=='Admin/report' OR $url=='admin/report'){
 					echo '<li class="active">';
 					 } else { 
 					echo '<li class="">';
